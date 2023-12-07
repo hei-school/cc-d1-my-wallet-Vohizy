@@ -16,7 +16,7 @@ public class Main {
 
         if (maBanque.effectuerTransaction(client1, montantTransaction, descriptionTransaction, siteInternetTransaction)) {
             System.out.println("Transaction réussie pour " + client1.getNom() + ". Nouveau solde : " + client1.getPortefeuille().getSolde());
-            System.out.println("Liste des transactions de " + client1.getNom() + " : " + client1.getTransactions());
+            System.out.println("Liste des transactions de " + client1.getNom() + " : " + client1.transactionsToString());
             System.out.println("Solde total de la banque après transaction : " + maBanque.getSoldeTotal());
         } else {
             System.out.println("La transaction a échoué. Vérifiez le montant ou le solde disponible.");

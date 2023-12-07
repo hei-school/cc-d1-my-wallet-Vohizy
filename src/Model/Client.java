@@ -32,4 +32,17 @@ public class Client {
     public List<Transaction> getTransactions() {
         return transactions;
     }
+
+    // Méthode pour obtenir une représentation lisible des transactions
+    public String transactionsToString() {
+        StringBuilder result = new StringBuilder();
+        for (Transaction transaction : transactions) {
+            result.append("Montant: ").append(transaction.getMontant())
+                    .append(", Description: ").append(transaction.getDescription())
+                    .append(", Site Internet: ").append(transaction.getSiteInternet())
+                    .append(", Date: ").append(transaction.getDate())
+                    .append("\n");
+        }
+        return result.toString();
+    }
 }
