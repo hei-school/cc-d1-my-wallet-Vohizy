@@ -5,3 +5,17 @@ class PortefeuilleElectronique:
 
     def get_solde(self):
         return self.solde
+
+    def deposer(self, montant):
+        if montant > 0:
+            self.solde += montant
+            return True
+        else:
+            return False
+
+    def retirer(self, montant):
+        if 0 < montant <= self.solde:
+            self.solde -= montant
+            return True
+        else:
+            return False
