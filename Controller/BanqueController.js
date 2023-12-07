@@ -1,4 +1,5 @@
 const Client = require("../Model/Client");
+const PortefeuilleElectronique = require("../Model/PortefeuilleElectronique");
 
 class BanqueController {
   constructor() {
@@ -8,6 +9,16 @@ class BanqueController {
 
   ajouterClient(client) {
     this.clients.push(client);
+  }
+
+  effectuerTransaction(client, montant, description, siteInternet) {
+    if (client.portefeuille.retirer(montant)) {
+      client.ajouterTransaction(montant, description, siteInternet);
+      this.soldeTotal += montant;
+      return true;
+    } else {
+      return false;
+    }
   }
 }
 
